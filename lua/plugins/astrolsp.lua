@@ -45,6 +45,33 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      tailwindcss = {
+        -- Add relevant filetypes if the defaults are not sufficient.
+        filetypes = { "astro", "blade", "clojure", "css", "django-html", "edge", "eelixir", "elixir", "erb", "eruby", "gohtml", "haml", "handlebars", "hbs", "html", "jade", "javascript", "javascriptreact", "leaf", "leex", "less", "liquid", "markdown", "mdx", "mustache", "njk", "php", "postcss", "pug", "python", "razor", "rescript", "ruby", "rust", "sass", "scss", "slim", "svelte", "svg", "tag", "templ", "terraform", "twig", "typescript", "typescriptreact", "vue", "zig" },
+        -- You can add more specific tailwindcss-language-server settings here if needed.
+        -- For example, to include custom classRegex for libraries like clsx or cva:
+        init_options = {
+          userLanguages = {
+          },
+        },
+        settings = {
+          tailwindCSS = {
+            experimental = {
+              classRegex = {
+                { "clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+                { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+                { "cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+              },
+            },
+            includeLanguages = {
+              -- You can map filetypes to internal Tailwind CSS language IDs here if needed
+              ["plaintext"] = "html",
+              ["javascriptreact"] = "html",
+              ["typescriptreact"] = "html",
+            },
+          },
+        },
+      }
     },
     -- customize how language servers are attached
     handlers = {

@@ -11,7 +11,6 @@ return {
   { import = "astrocommunity.motion.leap-nvim" },
   { import = "astrocommunity.motion.mini-surround" },
   { import = "astrocommunity.scrolling.cinnamon-nvim" },
-  { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.bars-and-lines.vim-illuminate" },
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
   { import = "astrocommunity.recipes.ai" },
